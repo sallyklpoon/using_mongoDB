@@ -7,6 +7,9 @@ let app = express();
 
 app.get("/", (req, res)=> res.render("pages/index"));
 
+
+
+
 app.get("/myForm", (req, res) => res.render("pages/myForm"));
 
 
