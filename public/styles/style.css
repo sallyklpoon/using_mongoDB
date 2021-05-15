@@ -7,6 +7,7 @@ body {
   -webkit-box-align: center;
           align-items: center;
   height: 100vh;
+  background-color: rgb(53, 53, 65);
 }
 
 .todo-list {
@@ -40,6 +41,10 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+button {
+  border-radius: 3px;
 }
 /*
 .todo-list .todo-list__label input[type="checkbox"] + .check {

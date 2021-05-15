@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/myForm.css">
+
+    <script type="text/javascript" src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+
     <title>My Form</title>
 </head>
+
 <body>
+    <h1>Add Items</h1>
     <form action="/myForm" method="POST">
-        <textarea name="items" placeholder="enter items seperated by commas"></textarea>
-        <button type="submit">send</button>
+        <div id="all-inputs">
+            <div class="input-container">
+                <label>Todo Item 1</label>
+                <input></input>
+                <button type="button" id="first-add-btn">+</button>
+            </div>
+        </div>
+        <button type="submit">Submit</button>
     </form>
+
+    <script src="/scripts/myForm.js"></script>
 </body>
+
 </html>
