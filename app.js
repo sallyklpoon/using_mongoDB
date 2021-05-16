@@ -74,17 +74,24 @@ app.post("/myForm", (req, res) => {
 });
 
 
-/**
- * GET request using req.query
- */
-// app.get("/myListQueryString", (req, res) => {
+app.put('/', (req, res) => {
 
-//     let items_list = [req.query.item1, req.query.item2]
-//     res.render('pages/result', {
-//         items: items_list
-//     })
+    console.log(req.body)
 
-// });
+    Items.findOneAndUpdate(
+        { item: req.body.mod_item },
+        {
+            $set: {
+                item: req.body.update_item
+            }
+        },
+        {
+            upsert: true
+        }
+    )
+    .then(result => res.json('Success'))
+    .catch(err => console.error(err))
+})
 
 
 /**
