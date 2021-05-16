@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>Assignment 3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Assignment 3</title>
 </head>
+
 <body>
+
+  <h1>My ToDo List</h1>
+  
+  <section>
     <form>
-        <fieldset class="todo-list">
-          <legend class="todo-list__title">My Special ToDo List</legend>
-          <label class="todo-list__label">
-            <input type="checkbox" name="" id="" />
-            <i class="check"></i>
-            <span>Hi on CST Project</span>
-          </label>
-          <label class="todo-list__label">
-            <input type="checkbox" name="" id="" />
-            <i class="check"></i>
-            <span>Watch CST Lectures</span>
-          </label>
-          <label class="todo-list__label">
-            <input type="checkbox" name="" id="" />
-            <i class="check"></i>
-            <span>Cook Dinner</span>
-          </label>
-          <label class="todo-list__label">
-            <input type="checkbox" name="" id="" />
-            <i class="check"></i>
-            <span>Code All Night</span>
-          </label>
+      <fieldset class="todo-list">
+        <legend class="todo-list__title">My Special ToDo List</legend>
+        <label class="todo-list__label">
+          <input type="checkbox" name="" id="" />
+          <i class="check"></i>
+          <span>Hi on CST Project</span>
+        </label>
+        <label class="todo-list__label">
+          <input type="checkbox" name="" id="" />
+          <i class="check"></i>
+          <span>Watch CST Lectures</span>
+        </label>
+        <label class="todo-list__label">
+          <input type="checkbox" name="" id="" />
+          <i class="check"></i>
+          <span>Cook Dinner</span>
+        </label>
+        <label class="todo-list__label">
+          <input type="checkbox" name="" id="" />
+          <i class="check"></i>
+          <span>Code All Night</span>
+        </label>
+      </fieldset>
+    </form>
+
+    <div id="edit-list">
+
+      <fieldset class="modify-option">
+        <legend class="todo-list__title">Add New Items</legend>
+        <button type="button" onclick="window.location.href = '/myForm'">Go to My Form</button>
+      </fieldset>
+
+      <form id="update">
+        <fieldset class="modify-option">
+          <legend class="todo-list__title">Modification</legend>
+
+          <label for="item-to-mod">Enter the todo item to modify:</label>
+          <input id="item-to-mod" name="item-to-mod">
+
+          <label for="new-item">Enter new name for the selected item:</label>
+          <input id="new-item" name="new-item">
+
+          <button type="submit">Update</button>
+
         </fieldset>
+        
       </form>
-      
+
+      <form id="delete">
+        <fieldset class="modify-option">
+          <legend class="todo-list__title">Deletion</legend>
+
+          <label for="item-to-delete">Enter item the todo item to delete:</label>
+          <input id="item-to-delete" name="item-to-delete">
+
+          <button type="submit">Delete</button>
+
+        </fieldset>
+        
+      </form>
+    </div>
+
+  </section>
+
 </body>
+
 </html>
