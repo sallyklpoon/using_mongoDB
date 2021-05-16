@@ -25,7 +25,7 @@ $('#update-btn').click(() => {
 })
 
 /**
- * 
+ * Delete the item submitted by the user if it is in the list.
  */
 $('#delete-btn').click(() => {
 

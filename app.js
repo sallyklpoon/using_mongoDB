@@ -84,7 +84,7 @@ app.post("/myForm", (req, res) => {
 });
 
 /**
- * When put request is made to '/', find the item to modify in the Items collection and update it.
+ * PUT request to '/', find the item to modify in the Items collection and update it.
  */
 app.put('/', (req, res) => {
 
@@ -106,7 +106,7 @@ app.put('/', (req, res) => {
 })
 
 /**
- * Delete request made to '/' will search the item to delete in Items collection
+ * DELETE request made to '/' will search the item to delete in Items collection
  */
 app.delete('/', (req, res) => {
     Items.deleteOne({
