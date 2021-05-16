@@ -1,6 +1,6 @@
 const express = require("express");
 let app = express();
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 
 
 // ==========================================
@@ -20,7 +20,10 @@ app.set("view engine", "ejs");
 
 
 let db_url = "mongodb+srv://root:1234@cluster0.ztxlv.mongodb.net/myDatabase?retryWrites=true&w=majority";
-mongoose.connect(db_url, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(db_url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 let Items = require('./models/items');
 
@@ -39,9 +42,11 @@ db.once('open', () => {
 // Render to do list
 app.get("/", (req, res) => {
     Items.find()
-    .then(items => {
-        res.render('index.ejs', { items: items })
-    })
+        .then(items => {
+            res.render('index.ejs', {
+                items: items
+            })
+        })
 
 });
 
@@ -59,15 +64,19 @@ app.post("/myForm", (req, res) => {
     console.log(new_items)
 
 
-    for(let i=0; i<new_items.length; i++) {
+    for (let i = 0; i < new_items.length; i++) {
 
-        let item = new Items({ item: new_items[i] })
-
-        item.save({ item: new_items[i] })
-        .then(result => {
-            res.redirect('/')
+        let item = new Items({
+            item: new_items[i]
         })
-        .catch(err => console.error(err))
+
+        item.save({
+                item: new_items[i]
+            })
+            .then(result => {
+                res.redirect('/')
+            })
+            .catch(err => console.error(err))
 
     }
 
@@ -78,21 +87,27 @@ app.put('/', (req, res) => {
 
     console.log(req.body)
 
-    Items.findOneAndUpdate(
-        { item: req.body.mod_item },
-        {
+    Items.findOneAndUpdate({
+            item: req.body.mod_item
+        }, {
             $set: {
                 item: req.body.update_item
             }
-        },
-        {
+        }, {
             upsert: true
-        }
+        })
+        .then(result => res.json('Success'))
+        .catch(err => console.error(err))
+})
+
+
+app.delete('/', (req, res) => {
+    Items.deleteOne(
+        { item: req.body.del_item }
     )
     .then(result => res.json('Success'))
     .catch(err => console.error(err))
 })
-
 
 /**
  * GET request using req.params

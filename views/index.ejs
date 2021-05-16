@@ -14,7 +14,7 @@
 <body>
 
   <h1>My ToDo List</h1>
-  
+
   <section>
     <form>
       <fieldset class="todo-list">
@@ -22,12 +22,12 @@
         <legend class="todo-list__title">My Special ToDo List</legend>
 
         <% for(let i = 0; i < items.length; i++) {%>
-          <label class="todo-list__label">
-            <input type="checkbox" name="" id="" />
-            <i class="check"></i>
-            <span><%= items[i].item %></span>
-          </label>
-          <% } %>
+        <label class="todo-list__label">
+          <input type="checkbox" name="" id="" />
+          <i class="check"></i>
+          <span><%= items[i].item %></span>
+        </label>
+        <% } %>
 
       </fieldset>
     </form>
@@ -52,7 +52,7 @@
           <button type="button" id="update-btn">Update</button>
 
         </fieldset>
-        
+
       </form>
 
       <form id="delete">
@@ -62,10 +62,10 @@
           <label for="item-to-delete">Enter item the todo item to delete:</label>
           <input id="item-to-delete" name="item-to-delete">
 
-          <button type="submit" id="delete-btn">Delete</button>
+          <button type="button" id="delete-btn">Delete</button>
 
         </fieldset>
-        
+
       </form>
     </div>
 
