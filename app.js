@@ -59,7 +59,7 @@ app.post("/myForm", (req, res) => {
     console.log(new_items)
 
 
-    for(i=0; i<new_items.length; i++) {
+    for(let i=0; i<new_items.length; i++) {
 
         let item = new Items({ item: new_items[i] })
 

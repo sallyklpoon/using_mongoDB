@@ -1,5 +1,3 @@
-const addbtn = document.querySelector('#submit-form')
-
 // Run when page completes loading.
 $(document).ready(() => {
 
