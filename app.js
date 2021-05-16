@@ -64,8 +64,8 @@ app.post("/myForm", (req, res) => {
         let item = new Items({ item: new_items[i] })
 
         item.save({ item: new_items[i] })
-        .then(res => {
-            console.log('you did it!')
+        .then(result => {
+            res.redirect('/')
         })
         .catch(err => console.error(err))
 
