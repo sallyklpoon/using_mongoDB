@@ -15,9 +15,12 @@ $('#update-btn').click(() => {
             }
         })
         .done(response => {
+            if (response === 'null') {
+                alert(`Modification failed: The item, '${item_to_mod}', was not found in the database.`)
+            } else {
             window.location = '/';
+            }
         })
-
 
 })
 
@@ -36,7 +39,11 @@ $('#delete-btn').click(() => {
             }
         })
         .done(response => {
+            if (response === 'Nothing deleted') {
+                alert(`Deletion failed: The item, '${delete_item}', was not found in the database.`)
+            } else {
             window.location = '/';
+            }
         })
 
 })

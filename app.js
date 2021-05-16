@@ -39,7 +39,9 @@ db.once('open', () => {
 // ========================================
 
 
-// Render to do list
+/**
+ * GET request to '/' renders index with Items collection items.
+ */
 app.get("/", (req, res) => {
     Items.find()
         .then(items => {
@@ -55,15 +57,14 @@ app.get("/myForm", (req, res) => res.render("myForm.ejs"));
 
 
 /**
- * POST request from myForm using urlencoded
+ * POST to 'myForm' saves submitted form items to Items collection.
  */
 app.post("/myForm", (req, res) => {
 
+    // retrieve an array of the items to be added
     let new_items = Object.values(req.body);
 
-    console.log(new_items)
-
-
+    // for each new item, save to the Items collection
     for (let i = 0; i < new_items.length; i++) {
 
         let item = new Items({
@@ -74,7 +75,7 @@ app.post("/myForm", (req, res) => {
                 item: new_items[i]
             })
             .then(result => {
-                res.redirect('/')
+                res.redirect('/') // redirect to '/' after saving
             })
             .catch(err => console.error(err))
 
@@ -82,45 +83,44 @@ app.post("/myForm", (req, res) => {
 
 });
 
-
+/**
+ * When put request is made to '/', find the item to modify in the Items collection and update it.
+ */
 app.put('/', (req, res) => {
 
-    console.log(req.body)
-
     Items.findOneAndUpdate({
-            item: req.body.mod_item
+            item: req.body.mod_item.toLowerCase() // find the item to modify
         }, {
             $set: {
                 item: req.body.update_item
             }
-        }, {
-            upsert: true
         })
-        .then(result => res.json('Success'))
+        .then(result => {
+            if (result === null) {
+                res.json('null')        // if search result found nothing
+            } else {
+                res.json('Success')     // search found something to update!
+            }
+        })
         .catch(err => console.error(err))
 })
 
-
-app.delete('/', (req, res) => {
-    Items.deleteOne(
-        { item: req.body.del_item }
-    )
-    .then(result => res.json('Success'))
-    .catch(err => console.error(err))
-})
-
 /**
- * GET request using req.params
+ * Delete request made to '/' will search the item to delete in Items collection
  */
-
-// app.get("/myList/:item1/:item2", (req, res) => {
-
-//     let items_list = [req.params.item1, req.params.item2]
-//     res.render('pages/result', {
-//         items: items_list
-//     })
-
-// });
+app.delete('/', (req, res) => {
+    Items.deleteOne({
+            item: req.body.del_item
+        })
+        .then(result => {
+            if (result.deletedCount === 0) {    // if nothing was deleted
+                res.json('Nothing deleted')
+            } else {                            // else, something was deleted!
+                res.json('Success')
+            }
+        })
+        .catch(err => console.error(err))
+})
 
 
 app.listen(3000);
