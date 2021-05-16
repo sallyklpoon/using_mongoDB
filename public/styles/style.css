@@ -15,6 +15,11 @@ h1 {
   margin-bottom: 3rem;
 }
 
+p {
+  margin-top: 0em;
+  color: #FFFFFF;
+}
+
 .todo-list {
   display: -webkit-box;
   display: flex;

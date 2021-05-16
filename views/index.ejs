@@ -35,40 +35,40 @@
     <div id="edit-list">
 
       <fieldset class="modify-option">
+        <legend class="todo-list__title">Modification</legend>
+
+        <p>Enter the todo item you want to modify, and the new name you want to give it</p>
+
+        <label for="item-to-mod">Enter the todo item to modify:</label>
+        <input id="item-to-mod" name="item-to-mod" placeholder="item to modify">
+
+        <label for="new-item">Enter new name for the selected item:</label>
+        <input id="new-item" name="new-item" placeholder="new item name">
+
+        <button type="button" id="update-btn">Update</button>
+
+        <div id="update-res" class="res-msg"></div>
+      </fieldset>
+
+
+      <fieldset class="modify-option">
         <legend class="todo-list__title">Add New Items</legend>
         <button type="button" onclick="window.location.href = '/myForm'">Go to My Form</button>
       </fieldset>
 
-      <form id="update">
-        <fieldset class="modify-option">
-          <legend class="todo-list__title">Modification</legend>
 
-          <label for="item-to-mod">Enter the todo item to modify:</label>
-          <input id="item-to-mod" name="item-to-mod">
 
-          <label for="new-item">Enter new name for the selected item:</label>
-          <input id="new-item" name="new-item">
+      <fieldset class="modify-option">
+        <legend class="todo-list__title">Deletion</legend>
 
-          <button type="button" id="update-btn">Update</button>
+        <label for="item-to-delete">Enter item the todo item to delete:</label>
+        <input id="item-to-delete" name="item-to-delete" placeholder="item to delete">
 
-          <div id="update-res" class="res-msg"></div>
-        </fieldset>
+        <button type="button" id="delete-btn">Delete</button>
 
-      </form>
+        <div id="delete-res" class="res-msg"></div>
+      </fieldset>
 
-      <form id="delete">
-        <fieldset class="modify-option">
-          <legend class="todo-list__title">Deletion</legend>
-
-          <label for="item-to-delete">Enter item the todo item to delete:</label>
-          <input id="item-to-delete" name="item-to-delete">
-
-          <button type="button" id="delete-btn">Delete</button>
-
-          <div id="delete-res" class="res-msg"></div>
-        </fieldset>
-
-      </form>
     </div>
 
   </section>
