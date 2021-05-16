@@ -68,7 +68,7 @@ app.post("/myForm", (req, res) => {
     for (let i = 0; i < new_items.length; i++) {
 
         let item = new Items({
-            item: new_items[i]
+            item: new_items[i].toLowerCase()
         })
 
         item.save({

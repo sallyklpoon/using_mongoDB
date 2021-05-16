@@ -102,3 +102,8 @@ button {
   border: 1px solid #FFFFFF;
   background-color: aquamarine;
 }
+
+#button-set {
+  display: flex;
+  justify-content: space-around;
+}

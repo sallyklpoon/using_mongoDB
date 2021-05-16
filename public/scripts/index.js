@@ -29,7 +29,7 @@ $('#update-btn').click(() => {
  */
 $('#delete-btn').click(() => {
 
-    let delete_item = $('#item-to-delete').val();
+    let delete_item = $('#item-to-mod').val();
 
     $.ajax({
             url: '/',
