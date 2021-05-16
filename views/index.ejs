@@ -16,25 +16,17 @@
     <form>
       <fieldset class="todo-list">
         <legend class="todo-list__title">My Special ToDo List</legend>
+        <% for(var i = 0; i < items.length; i++) {%>
+          <label class="todo-list__label">
+            <input type="checkbox" name="" id="" />
+            <i class="check"></i>
+            <span><%= items[i].name %></span>
+          </label>
+          <% } %>
         <label class="todo-list__label">
           <input type="checkbox" name="" id="" />
           <i class="check"></i>
           <span>Hi on CST Project</span>
-        </label>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>Watch CST Lectures</span>
-        </label>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>Cook Dinner</span>
-        </label>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>Code All Night</span>
         </label>
       </fieldset>
     </form>
