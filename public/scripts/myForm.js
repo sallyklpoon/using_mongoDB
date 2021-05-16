@@ -1,15 +1,14 @@
 // Run when page completes loading.
 $(document).ready(() => {
 
-    let next_todo_num = 2
+    let next_todo_num = 2;
 
     $('#first-add-btn').click( () => {
 
-        $('#first-add-btn').remove()
-        addNextInput(next_todo_num)
-
+        $('#first-add-btn').remove();
+        addNextInput(next_todo_num);
     })
-})
+});
 
 
 
@@ -19,10 +18,10 @@ $(document).ready(() => {
  */
 const addNextInput = item_num => {
 
-    let input_form = document.getElementById('all-inputs')
-    input_form.appendChild(createInputDiv(item_num))
+    let input_form = document.getElementById('all-inputs');
+    input_form.appendChild(createInputDiv(item_num));
 
-}
+};
 
 /**
  * Create a new input div.
@@ -32,34 +31,34 @@ const addNextInput = item_num => {
 const createInputDiv = item_num => {
 
     // Create the div
-    let input_div = document.createElement('div')
-    input_div.setAttribute('class', 'input-container')
+    let input_div = document.createElement('div');
+    input_div.setAttribute('class', 'input-container');
 
     // Create label
-    let input_label = document.createElement('label')
-    input_label.textContent = `Todo Item ${item_num}`
+    let input_label = document.createElement('label');
+    input_label.textContent = `Todo Item ${item_num}`;
 
     // Create input
-    let input_field = document.createElement('input')
-    input_field.setAttribute('name', `item${item_num}`)
+    let input_field = document.createElement('input');
+    input_field.setAttribute('name', `item${item_num}`);
 
     // Create add button
-    let add_btn = document.createElement('button')
-    add_btn.setAttribute('type', 'button')
-    add_btn.setAttribute('id', 'add-btn')
+    let add_btn = document.createElement('button');
+    add_btn.setAttribute('type', 'button');
+    add_btn.setAttribute('id', 'add-btn');
     add_btn.textContent = '+'
 
     // add event listener to add button
-    addBtnListener(add_btn, item_num) 
+    addBtnListener(add_btn, item_num);
 
     // Append all elements togther into the input div
-    input_div.appendChild(input_label)
-    input_div.appendChild(input_field)
-    input_div.appendChild(add_btn)
+    input_div.appendChild(input_label);
+    input_div.appendChild(input_field);
+    input_div.appendChild(add_btn);
 
-    return input_div
+    return input_div;
 
-}
+};
 
 
 /**
@@ -72,11 +71,11 @@ const addBtnListener = (button_element, item_num) => {
     button_element.addEventListener('click', () => {
 
         // Remove the add button
-        $('#add-btn').remove()
+        $('#add-btn').remove();
 
         // Add the next input by incrementing the current item number by 1
-        addNextInput(item_num + 1)
+        addNextInput(item_num + 1);
 
-    })
+    });
 
-}
+};

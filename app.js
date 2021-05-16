@@ -31,7 +31,7 @@ let db = mongoose.connection;
 
 db.once('open', () => {
     console.log('Connection was successful');
-})
+});
 
 
 // ========================================
@@ -75,9 +75,9 @@ app.post("/myForm", (req, res) => {
                 item: new_items[i]
             })
             .then(result => {
-                res.redirect('/') // redirect to '/' after saving
+                res.redirect('/'); // redirect to '/' after saving
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
 
     }
 
@@ -89,38 +89,38 @@ app.post("/myForm", (req, res) => {
 app.put('/', (req, res) => {
 
     Items.findOneAndUpdate({
-            item: req.body.mod_item              // find the item to modify
+            item: req.body.mod_item // find the item to modify
         }, {
             $set: {
-                item: req.body.update_item
+                item: req.body.update_item.toLowerCase()
             }
         })
         .then(result => {
             if (result === null) {
-                res.json('null')                // if search result found nothing
+                res.json('null'); // if search result found nothing
             } else {
-                res.json('Success')             // search found something to update!
+                res.json('Success'); // search found something to update!
             }
         })
-        .catch(err => console.error(err))
-})
+        .catch(err => console.error(err));
+});
 
 /**
  * DELETE request made to '/' will search the item to delete in Items collection
  */
 app.delete('/', (req, res) => {
     Items.deleteOne({
-            item: req.body.del_item                 // find the item to delete
+            item: req.body.del_item // find the item to delete
         })
         .then(result => {
-            if (result.deletedCount === 0) {        // if nothing was deleted
-                res.json('Nothing deleted')
-            } else {                                // else, something was deleted!
-                res.json('Success')
+            if (result.deletedCount === 0) { // if nothing was deleted
+                res.json('Nothing deleted');
+            } else { // else, something was deleted!
+                res.json('Success');
             }
         })
-        .catch(err => console.error(err))
-})
+        .catch(err => console.error(err));
+});
 
 
 app.listen(3000);
