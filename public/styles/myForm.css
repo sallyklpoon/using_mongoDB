@@ -25,9 +25,10 @@ label {
 }
 
 button {
-    border-color: #FFFFFF;
-    border-radius: 3px;
-}
+    font-weight: bold;
+    border: 1px solid #FFFFFF;
+    background-color: aquamarine;
+  }
 
 h1 {
     color: #FFFFFF

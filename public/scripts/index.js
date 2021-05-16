@@ -10,7 +10,7 @@ $('#update-btn').click(() => {
             url: '/',
             method: 'put',
             data: {
-                mod_item: item_to_mod,
+                mod_item: item_to_mod.toLowerCase(),
                 update_item: new_item
             }
         })
@@ -35,7 +35,7 @@ $('#delete-btn').click(() => {
             url: '/',
             method: 'delete',
             data: {
-                del_item: delete_item
+                del_item: delete_item.toLowerCase()
             }
         })
         .done(response => {

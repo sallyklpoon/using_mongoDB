@@ -89,7 +89,7 @@ app.post("/myForm", (req, res) => {
 app.put('/', (req, res) => {
 
     Items.findOneAndUpdate({
-            item: req.body.mod_item.toLowerCase() // find the item to modify
+            item: req.body.mod_item              // find the item to modify
         }, {
             $set: {
                 item: req.body.update_item
@@ -97,9 +97,9 @@ app.put('/', (req, res) => {
         })
         .then(result => {
             if (result === null) {
-                res.json('null')        // if search result found nothing
+                res.json('null')                // if search result found nothing
             } else {
-                res.json('Success')     // search found something to update!
+                res.json('Success')             // search found something to update!
             }
         })
         .catch(err => console.error(err))
@@ -110,12 +110,12 @@ app.put('/', (req, res) => {
  */
 app.delete('/', (req, res) => {
     Items.deleteOne({
-            item: req.body.del_item
+            item: req.body.del_item                 // find the item to delete
         })
         .then(result => {
-            if (result.deletedCount === 0) {    // if nothing was deleted
+            if (result.deletedCount === 0) {        // if nothing was deleted
                 res.json('Nothing deleted')
-            } else {                            // else, something was deleted!
+            } else {                                // else, something was deleted!
                 res.json('Success')
             }
         })

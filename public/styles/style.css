@@ -98,4 +98,7 @@ input {
 
 button {
   width: 8rem;
+  font-weight: bold;
+  border: 1px solid #FFFFFF;
+  background-color: aquamarine;
 }
