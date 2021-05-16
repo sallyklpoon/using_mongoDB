@@ -1,3 +1,5 @@
+const addbtn = document.querySelector('#submit-form')
+
 // Run when page completes loading.
 $(document).ready(() => {
 
@@ -9,8 +11,8 @@ $(document).ready(() => {
         addNextInput(next_todo_num)
 
     })
-
 })
+
 
 
 /**
@@ -41,6 +43,7 @@ const createInputDiv = item_num => {
 
     // Create input
     let input_field = document.createElement('input')
+    input_field.setAttribute('name', `item${item_num}`)
 
     // Create add button
     let add_btn = document.createElement('button')

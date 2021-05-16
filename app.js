@@ -22,7 +22,7 @@ app.set("view engine", "ejs");
 let db_url = "mongodb+srv://root:1234@cluster0.ztxlv.mongodb.net/myDatabase?retryWrites=true&w=majority";
 mongoose.connect(db_url, {useNewUrlParser: true, useUnifiedTopology: true});
 
-let items = require('./models/items');
+let Items = require('./models/items');
 
 let db = mongoose.connection;
 
@@ -38,7 +38,7 @@ db.once('open', () => {
 
 // Render to do list
 app.get("/", (req, res) => {
-    items.find()
+    Items.find()
     .then(items => {
         res.render('index.ejs', { items: items })
     })
@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/myForm", (req, res) => res.render("pages/myForm"));
+app.get("/myForm", (req, res) => res.render("myForm.ejs"));
 
 
 /**
@@ -54,10 +54,22 @@ app.get("/myForm", (req, res) => res.render("pages/myForm"));
  */
 app.post("/myForm", (req, res) => {
 
-    let items_list = req.body.items.split(',')
-    res.render('pages/result', {
-        items: items_list
-    })
+    let new_items = Object.values(req.body);
+
+    console.log(new_items)
+
+
+    for(i=0; i<new_items.length; i++) {
+
+        let item = new Items({ item: new_items[i] })
+
+        item.save({ item: new_items[i] })
+        .then(res => {
+            console.log('you did it!')
+        })
+        .catch(err => console.error(err))
+
+    }
 
 });
 
@@ -65,27 +77,28 @@ app.post("/myForm", (req, res) => {
 /**
  * GET request using req.query
  */
-app.get("/myListQueryString", (req, res) => {
+// app.get("/myListQueryString", (req, res) => {
 
-    let items_list = [req.query.item1, req.query.item2]
-    res.render('pages/result', {
-        items: items_list
-    })
+//     let items_list = [req.query.item1, req.query.item2]
+//     res.render('pages/result', {
+//         items: items_list
+//     })
 
-});
+// });
 
 
 /**
  * GET request using req.params
  */
-app.get("/myList/:item1/:item2", (req, res) => {
 
-    let items_list = [req.params.item1, req.params.item2]
-    res.render('pages/result', {
-        items: items_list
-    })
+// app.get("/myList/:item1/:item2", (req, res) => {
 
-});
+//     let items_list = [req.params.item1, req.params.item2]
+//     res.render('pages/result', {
+//         items: items_list
+//     })
+
+// });
 
 
 app.listen(3000);
