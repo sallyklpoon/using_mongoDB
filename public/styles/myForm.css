@@ -10,8 +10,10 @@ body {
 form {
     width: 20rem;
     padding: 1em;
-    background-color: #000000;
 
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    background-color: #000000;
 }
 
 label {

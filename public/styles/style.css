@@ -17,13 +17,13 @@ body {
   -webkit-box-direction: normal;
           flex-direction: column;
   padding: 0 75px 10px 30px;
-  background: #FF9501 ;
+  background: #000000 ;
   border-radius: 10px;
 }
 .todo-list .todo-list__title {
   padding: 3px 6px;
   color: #f1faee;
-  background-color: yellowgreen;
+  background-color: #26275c;
 }
 .todo-list .todo-list__label {
   display: -webkit-box;
@@ -46,56 +46,8 @@ body {
 button {
   border-radius: 3px;
 }
-/*
-.todo-list .todo-list__label input[type="checkbox"] + .check {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  border: 2px solid #f1faee;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-.todo-list .todo-list__label input[type="checkbox"]:checked + .check {
-  width: 25px;
-  height: 15px;
-  border-top: transparent;
-  border-right: transparent;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.todo-list .todo-list__label input[type="checkbox"] ~ span {
-  position: relative;
-  left: 40px;
-  white-space: nowrap;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.todo-list .todo-list__label input[type="checkbox"] ~ span::before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: #f1faee;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: right;
-          transform-origin: right;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-}
-*/
+
 .todo-list .todo-list__label input[type="checkbox"]:checked ~ span {
   color: #585b57;
 }
-/*
-.todo-list .todo-list__label input[type="checkbox"]:checked ~ span::before {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transform-origin: left;
-          transform-origin: left;
-}
-*/
+
